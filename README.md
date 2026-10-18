@@ -50,8 +50,8 @@ cantidad de pruebas realizadas, por lo que no debe leerse como riesgo real de mo
 Requisitos: Python 3.10 o superior, Java 11 o 17 y unos 6 GB de RAM libres.
 
 ```bash
-git clone <URL-DEL-REPOSITORIO>
-cd <carpeta-del-repositorio>
+git clone https://github.com/IvanSanchezDev/covid19-colombia-spark.git
+cd covid-batch
 
 python3 -m venv venv
 source venv/bin/activate
