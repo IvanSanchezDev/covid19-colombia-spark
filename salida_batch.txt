@@ -1,0 +1,157 @@
+26/10/18 13:52:01 WARN Utils: Your hostname, Laptop-Ivan resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/10/18 13:52:01 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/10/18 13:52:05 INFO SparkContext: Running Spark version 3.5.3
+26/10/18 13:52:05 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/10/18 13:52:05 INFO SparkContext: Java version 11.0.32.1
+26/10/18 13:52:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/18 13:52:05 INFO ResourceUtils: ==============================================================
+26/10/18 13:52:05 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/18 13:52:05 INFO ResourceUtils: ==============================================================
+26/10/18 13:52:05 INFO SparkContext: Submitted application: CovidBatch
+26/10/18 13:52:05 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/18 13:52:05 INFO ResourceProfile: Limiting resource is cpu
+26/10/18 13:52:05 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/18 13:52:05 INFO SecurityManager: Changing view acls to: ivanchin
+26/10/18 13:52:05 INFO SecurityManager: Changing modify acls to: ivanchin
+26/10/18 13:52:05 INFO SecurityManager: Changing view acls groups to: 
+26/10/18 13:52:05 INFO SecurityManager: Changing modify acls groups to: 
+26/10/18 13:52:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ivanchin; groups with view permissions: EMPTY; users with modify permissions: ivanchin; groups with modify permissions: EMPTY
+26/10/18 13:52:05 INFO Utils: Successfully started service 'sparkDriver' on port 35701.
+26/10/18 13:52:05 INFO SparkEnv: Registering MapOutputTracker
+26/10/18 13:52:05 INFO SparkEnv: Registering BlockManagerMaster
+26/10/18 13:52:05 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/18 13:52:05 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/18 13:52:05 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/18 13:52:06 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-a99125ab-8ff9-466b-beeb-79b86886fdb8
+26/10/18 13:52:06 INFO MemoryStore: MemoryStore started with capacity 2.2 GiB
+26/10/18 13:52:06 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/18 13:52:06 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/18 13:52:06 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/18 13:52:06 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/10/18 13:52:06 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/10/18 13:52:06 INFO Executor: Java version 11.0.32.1
+26/10/18 13:52:06 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/18 13:52:06 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@3d3521b1 for default.
+26/10/18 13:52:06 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34463.
+26/10/18 13:52:06 INFO NettyBlockTransferService: Server created on 10.255.255.254:34463
+26/10/18 13:52:06 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/18 13:52:06 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 34463, None)
+26/10/18 13:52:06 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:34463 with 2.2 GiB RAM, BlockManagerId(driver, 10.255.255.254, 34463, None)
+26/10/18 13:52:06 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 34463, None)
+26/10/18 13:52:06 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 34463, None)
+Columnas del archivo: ['fecha_reporte_web', 'id_de_caso', 'fecha_de_notificacion', 'codigo_divipola_departamento', 'nombre_departamento', 'codigo_divipola_municipio', 'nombre_municipio', 'edad', 'unidad_de_medida_de_edad', 'sexo', 'tipo_de_contagio', 'ubicacion_del_caso', 'estado', 'codigo_iso_del_pais', 'nombre_del_pais', 'recuperado', 'fecha_de_inicio_de_sintomas', 'fecha_de_muerte', 'fecha_de_diagnostico', 'fecha_de_recuperacion', 'tipo_de_recuperacion', 'pertenencia_etnica', 'nombre_del_grupo_etnico']
+Filas cargadas: 6390971
+
+=== ANTES: valores de estado ===
++---------+-------+
+|estado   |count  |
++---------+-------+
+|Leve     |6154791|
+|Fallecido|143125 |
+|leve     |50623  |
+|N/A      |41268  |
+|Moderado |1056   |
+|Grave    |106    |
+|LEVE     |2      |
++---------+-------+
+
+=== ANTES: valores de recuperado ===
++----------+-------+
+|recuperado|count  |
++----------+-------+
+|Recuperado|6208573|
+|Fallecido |142830 |
+|N/A       |36327  |
+|Activo    |2946   |
+|fallecido |295    |
++----------+-------+
+
+=== ANTES: nulos reales vs texto 'N/A' ===
+estado        nulos=        0   'N/A'=    41268
+recuperado    nulos=        0   'N/A'=    36327
+sexo          nulos=        0   'N/A'=        0
+edad          nulos=        0   'N/A'=        0
+departamento  nulos=        0   'N/A'=        0
+
+=== ANTES: edad por unidad_medida (verifica 1=años, 2=meses, 3=días) ===
++-------------+-------+--------+--------+
+|unidad_medida|  casos|edad_min|edad_max|
++-------------+-------+--------+--------+
+|            3|   2762|       1|      51|
+|            1|6357475|       1|     114|
+|            2|  30732|       1|      79|
+|            5|      1|       1|       1|
+|            4|      1|       9|       9|
++-------------+-------+--------+--------+
+
+
+=== DESPUÉS DE LIMPIAR (6390971 casos únicos) ===
++---------+-------+
+|estado   |count  |
++---------+-------+
+|leve     |6205416|
+|fallecido|143125 |
+|NULL     |41268  |
+|moderado |1056   |
+|grave    |106    |
++---------+-------+
+
++----------+-------+
+|recuperado|count  |
++----------+-------+
+|recuperado|6208573|
+|fallecido |143125 |
+|NULL      |36327  |
+|activo    |2946   |
++----------+-------+
+
++---------+---+-----+
+|edad_prom|min|  max|
++---------+---+-----+
+|     40.0|0.0|114.0|
++---------+---+-----+
+
+=== Top 15 departamentos por casos ===
++---------------+-------+----------+-------------+
+|departamento   |casos  |fallecidos|letalidad_pct|
++---------------+-------+----------+-------------+
+|BOGOTA         |1888137|30293     |1.6          |
+|ANTIOQUIA      |955271 |18717     |1.96         |
+|VALLE          |572724 |15508     |2.71         |
+|CUNDINAMARCA   |331338 |7431      |2.24         |
+|SANTANDER      |297532 |8431      |2.83         |
+|BARRANQUILLA   |277989 |6030      |2.17         |
+|CARTAGENA      |163526 |2347      |1.44         |
+|ATLANTICO      |141072 |4227      |3.0          |
+|BOYACA         |131133 |2922      |2.23         |
+|TOLIMA         |127765 |4108      |3.22         |
+|NORTE SANTANDER|126015 |5211      |4.14         |
+|CORDOBA        |123095 |4001      |3.25         |
+|CALDAS         |120030 |2588      |2.16         |
+|RISARALDA      |110235 |2523      |2.29         |
+|CESAR          |109830 |2699      |2.46         |
++---------------+-------+----------+-------------+
+only showing top 15 rows
+
+=== Letalidad por grupo de edad ===
+grupo   casos  fallecidos  letalidad_pct
+  0-9  250070         247           0.10
+10-19  459434         226           0.05
+20-29 1318733        1660           0.13
+30-39 1410842        4662           0.33
+40-49 1072036       10268           0.96
+50-59  863465       20388           2.36
+60-69  558515       32252           5.77
+70-79  286191       35227          12.31
+  80+  171683       38195          22.25
+=== Por sexo ===
++----+-------+----------+-------------+
+|sexo|  casos|fallecidos|letalidad_pct|
++----+-------+----------+-------------+
+|   F|3417093|     56383|         1.65|
+|   M|2973878|     86742|         2.92|
++----+-------+----------+-------------+
+
+=== Retraso síntomas→reporte: mediana 10.0 días, percentil 90 20.0 días ===
+
+Listo. Gráficas y CSV en: /home/ivanchin/covid-batch/output
